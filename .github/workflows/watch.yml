@@ -2,8 +2,8 @@ name: Ticket Watch
 
 on:
   schedule:
-    - cron: "*/10 * * * *"  # 10 min välein
-  workflow_dispatch:  # voit ajaa manuaalisesti myös
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
 
 jobs:
   run:
@@ -25,7 +25,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python Watch.py
 
-        - name: Commit state
+      - name: Commit state
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
